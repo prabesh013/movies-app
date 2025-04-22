@@ -1,0 +1,19 @@
+{% extends 'movies/_base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<h1>My favorites movies</h1>
+{% load static %}
+<img src="{% static 'movies/movies.jpg' %}" alt="Movies" height="200px">
+
+{% if movies %}
+    <ul class="mt-2">
+    {% for movie in movies %}
+        <li>{{ movie|title }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No movies you like yet!</p>
+{% endif %}
+{% endblock %}
